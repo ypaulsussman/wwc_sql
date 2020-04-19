@@ -1,0 +1,32 @@
+Level,Individual Files Variable Names,Merged File Variable Names,Description,Type
+Findings,FindingID,f_FindingID,WWC study review findings identifier,int
+Findings,Protocol,f_Protocol,Protocol used for review,text
+Findings,InterventionID,f_InterventionID,WWC intervention identifier,int
+Findings,Intervention_Name,f_Intervention_Name,Name of intervention,text
+Findings,Comparison,f_Comparison,Comparison group,text
+Findings,OutcomeMeasureID,f_Outcome_MeasureID,WWC outcome measure identifier,int
+Findings,Outcome_Measure,f_Outcome_Measure,Outcome measure name,text
+Findings,Outcome_Domain,f_Outcome_Domain,Outcome domain,text
+Findings,Period,f_Period,Period of posttest,text
+Findings,Sample_Description,f_Sample_Description,Description of sample,text
+Findings,Is_Subgroup,f_Is_Subgroup,Subgroup measure,boolean
+Findings,Outcome_Sample_Size,f_Outcome_Sample_Size,Total sample size for outcome measure,int
+Findings,Outcome_Measure_Intervention_Sample_Size,f_Outcome_Intervention_SS,Intervention group sample size for outcome measure,float
+Findings,Outcome_Measure_Comparison_Sample_Size,f_Outcome_Comparison_SS,Comparison group sample size for outcome measure,float
+Findings,Intervention_Clusters_Sample_Size,f_Intervention_Clusters_SS,Intervention group clusters for outcome measure,int
+Findings,Comparison_Clusters_Sample_Size,f_Comparison_Clusters_SS,Comparison group clusters for outcome measure,int
+Findings,Intervention_Mean,f_Intervention_Mean,Intervention group mean for outcome measure,float
+Findings,Comparison_Mean,f_Comparison_Mean,Comparison group mean for outcome measure,float
+Findings,Intervention_Standard_Deviation,f_Intervention_Standard_Deviation,Intervention group standard deviation for outcome measure,int
+Findings,Comparison_Standard_Deviation,f_Comparison_Standard_Deviation,Comparison group standard deviation for outcome measure,int
+Findings,Effect_Size_Study,f_Effect_Size_Study,Study-reported effect size for outcome measure,float
+Findings,Effect_Size_WWC,f_Effect_Size_WWC,WWC calculated effect size for outcome measure,float
+Findings,Improvement_Index,f_Improvement_Index,Improvement Index for outcome measure,float
+Findings,p_Value_Study,f_p_Value_Study,Study reported p-value for outcome measure,float
+Findings,p_Value_WWC,f_p_Value_WWC,WWC calculated p-value for outcome measure,float
+Findings,ICC,f_ICC,Intra-class correlation used for clustering correction,float
+Findings,Clusters_Total,f_Clusters_Total,Total clusters for outcome measure,float
+Findings,Is_Statistically_Significant,f_Is_Statistically_Significant,WWC determined the finding is statistically significant,boolean
+Findings,Finding_Rating,f_Finding_Rating,Finding-level WWC rating,text
+Findings,ESSA_Rating,f_ESSA_Rating,ESSA evidence tier rating,text
+Findings,L1_Unit_of_Analysis,f_L1_Unit_of_Analysis,Unit of analysis,text

@@ -1,0 +1,141 @@
+Protocol,text
+Protocol_Version,int
+Standards_Version,text
+Citation,text
+Intervention_Name,text
+Study_Design,text
+Study_Rating,text
+Class_type_General,boolean
+Class_type_Inclusion,boolean
+Delivery_Method_Individual,boolean
+Delivery_Method_School,boolean
+Delivery_Method_Small_Group,boolean
+Delivery_Method_Whole_Class,boolean
+Demographics_of_Study_Sample_English_language_learners,"numeric(5, 2)"
+Demographics_of_Study_Sample_Free_or_reduced_price_lunch,"numeric(5, 2)"
+Demographics_of_Study_Sample_International,"numeric(5, 2)"
+Demographics_of_Study_Sample_Students_with_disabilities,"numeric(5, 2)"
+Ethnicity_Hispanic,boolean
+Ethnicity_Not_Hispanic,boolean
+Gender_Female,"numeric(5, 2)"
+Gender_Male,"numeric(5, 2)"
+Grade_1,boolean
+Grade_10,boolean
+Grade_11,boolean
+Grade_12,boolean
+Grade_2,boolean
+Grade_3,boolean
+Grade_4,boolean
+Grade_5,boolean
+Grade_6,boolean
+Grade_7,boolean
+Grade_8,boolean
+Grade_9,boolean
+Grade_K,boolean
+Grade_PK,boolean
+Grade_PS,boolean
+Program_Type_Curriculum,boolean
+Program_Type_Policy,boolean
+Program_Type_Practice,boolean
+Program_Type_School_level,boolean
+Program_Type_Supplement,boolean
+Program_Type_Teacher_level,boolean
+Race_Asian,"numeric(5, 2)"
+Race_Black,"numeric(5, 2)"
+Race_Native_American,"numeric(5, 2)"
+Race_Other,"numeric(5, 2)"
+Race_Pacific_Islander,"numeric(5, 2)"
+Race_White,"numeric(5, 2)"
+Region_State_Alabama,boolean
+Region_State_Alaska,boolean
+Region_State_Arizona,boolean
+Region_State_Arkansas,boolean
+Region_State_California,boolean
+Region_State_Colorado,boolean
+Region_State_Connecticut,boolean
+Region_State_Delaware,boolean
+Region_State_District_of_Columbia,boolean
+Region_State_Florida,boolean
+Region_State_Georgia,boolean
+Region_State_Hawaii,boolean
+Region_State_Idaho,boolean
+Region_State_Illinois,boolean
+Region_State_Indiana,boolean
+Region_State_Iowa,boolean
+Region_State_Kansas,boolean
+Region_State_Kentucky,boolean
+Region_State_Louisiana,boolean
+Region_State_Maine,boolean
+Region_State_Maryland,boolean
+Region_State_Massachusetts,boolean
+Region_State_Michigan,boolean
+Region_State_Midwest,boolean
+Region_State_Minnesota,boolean
+Region_State_Mississippi,boolean
+Region_State_Missouri,boolean
+Region_State_Montana,boolean
+Region_State_Nebraska,boolean
+Region_State_Nevada,boolean
+Region_State_New_Hampshire,boolean
+Region_State_New_Jersey,boolean
+Region_State_New_Mexico,boolean
+Region_State_New_York,boolean
+Region_State_North_Carolina,boolean
+Region_State_North_Dakota,boolean
+Region_State_Northeast,boolean
+Region_State_Ohio,boolean
+Region_State_Oklahoma,boolean
+Region_State_Oregon,boolean
+Region_State_Pennsylvania,boolean
+Region_State_Rhode_Island,boolean
+Region_State_South,boolean
+Region_State_South_Carolina,boolean
+Region_State_South_Dakota,boolean
+Region_State_Tennessee,boolean
+Region_State_Texas,boolean
+Region_State_Utah,boolean
+Region_State_Vermont,boolean
+Region_State_Virginia,boolean
+Region_State_Washington,boolean
+Region_State_West,boolean
+Region_State_West_Virginia,boolean
+Region_State_Wisconsin,boolean
+Region_State_Wyoming,boolean
+School_type_Charter,boolean
+School_type_Parochial,boolean
+School_type_Private,boolean
+School_type_Public,boolean
+Urbanicity_Rural,boolean
+Urbanicity_Suburban,boolean
+Urbanicity_Urban,boolean
+StudyID,int
+Publication,Text
+Publication_Date,Text
+ProductID,int
+Product_Name,text
+Purpose_of_Review,text
+Study_Page_URL,text
+Rating_Reason,text
+Ineligibility_Reason,text
+interventionID,int
+ERICId,text
+US_Region_U_S__Region,text
+Disability_Autism_spectrum_disorder,"numeric(5, 2)"
+School_setting_Student_Count,int
+Disability_Individualized_Education_Plan__IEP_,"numeric(5, 2)"
+Demographics_of_Study_Sample_Minority,"numeric(5, 2)"
+Demographics_of_Study_Sample_Non_minority,"numeric(5, 2)"
+Multisite,text
+Topic_Literacy,boolean
+Topic_Mathematics,boolean
+Topic_Science,boolean
+Topic_Behavior,boolean
+Topic_SWD,boolean
+Topic_ELL,boolean
+Topic_Teacher_Excellence,boolean
+Topic_Charter_Schools,boolean
+Topic_Early_Childhood,boolean
+Topic_K_to_12th_Grade,boolean
+Topic_Path_to_Graduation,boolean
+Topic_Postsecondary,boolean
+Posting_Date,date
