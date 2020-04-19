@@ -6,11 +6,13 @@ Because of this, I thought it would be fun to explore the data -- and different 
 
 The dataset feels too small (_not to mention too unstructured-text independent!_) to merit porting into something like Elasticsearch. (_In addition, some munging would still be required, e.g. from the 50+_ `bool` _location fields into a more Elasticsearch-idiomatic array of_ `terms`.) 
 
-As such, I decided to work with it in SQL. I submitted a request to WWC, got confirmation of receipt, and... never heard back 🇺🇸😄 ...so I elected just to munge and renormalize the data myself.
+As such, I decided to work with it in SQL. I submitted a request to WWC, got confirmation of receipt, and... never heard back 🇺🇸😄 ...so I elected to just munge and renormalize the data myself.
 
-That first step was enough of a pain that I've decided to put this project on hold until I can set aside the time to ~~extract `protocols`, `interventions`, et al into the tables they rightfully deserve,~~ add some PK's/FK's, remove duplicated columns, and _maybe_ even spin up a Rails API on top to give me those sweet, sweet ActiveRecord-association abstractions.
+That first step was enough of a pain that I've decided to put this project on hold until I can set aside the time to ~~extract `protocols`, `interventions`, et al into the tables they rightfully deserve, add some PK's/FK's,~~ remove duplicated columns, and _maybe_ even spin up a Rails API on top to give me those sweet, sweet ActiveRecord-association abstractions.
 
-In any case, feel welcome to grab the (_denormalized, but still eminently usable!_) `initial_data.sql` file and make use of it! 🤘📚
+In any case, feel encouraged to grab the (_denormalized, but still eminently usable!_) `initial_data.sql` file and make use of it! 🤘📚 
+
+(_Running_ `add_protocol_intervention_tables.sql` _and_ `add_primary_foreign_keys.sql` _don't cure everything, but at least perform the low-hanging normalizations._)
 
 ## Replicate the Munging Process
 
@@ -31,7 +33,7 @@ In any case, feel welcome to grab the (_denormalized, but still eminently usable
   - `wwc=# alter table intervention_reports alter column outcome_domain type text;`
   - (_Yeah, I know you can combine them, but I like to run each separately out of old atomicity-superstitions..._)
   - Note you'll need to repeat the above for the `studies` table, as well.
-- And populate! `wwc=# copy intervention_reports from '/Users/ypaulsussman/Desktop/wwc_sql/ir_munging/InterventionReports_booled.csv' DELIMITER ',' CSV HEADER;`
+- And populate! `wwc=# copy intervention_reports from 'your/path/to/InterventionReports_booled.csv' DELIMITER ',' CSV HEADER;`
   - Tweak and repeat, obviously, for `findings` and `studies` tables
   - Several dozen studies are misformatted for `.csv` (_usually through unescaped HTML or double-quotations._) At ~15k records, the `Studies_booled.csv` file is loadable into a UI; I found it fastest to just use regexp in VSCode to fix these, rather than adding a new script. 
   - Finally, study `1900582` has an inaccurate number of commas; fix it per `studies_munging/study_missing_commas.csv`
@@ -46,3 +48,7 @@ In any case, feel welcome to grab the (_denormalized, but still eminently usable
 - Manually generate `add_protocol_intervention_tables.sql`
 - `$ psql wwc`
 - `=# \i your/path/to/add_protocol_intervention_tables.sql`
+
+### Add primary and foreign keys
+- `$ psql wwc`
+- `=# \i your/path/to/add_primary_foreign_keys.sql`
