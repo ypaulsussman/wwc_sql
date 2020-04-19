@@ -1,6 +1,6 @@
 # What Works Clearinghouse's data, in SQL format
 
-The WWC is "_a central and trusted source of scientific evidence on education programs, products, practices, and policies._" Their research is second to none, and in a field I consider crucial: but the main site's "quarter-screen mouseover-modal with internal gutters, sidebars, and unpredictable disappearances" isn't the cleanest search-UI, and the available search parameters are somewhat smaller than the entirety of data available.
+The [WWC](https://ies.ed.gov/ncee/wwc/WhoWeAre) is "_a central and trusted source of scientific evidence on education programs, products, practices, and policies._" Their research is second to none, and in a field I consider crucial: but the main site's "quarter-screen mouseover-modal with internal gutters, sidebars, and unpredictable disappearances" isn't the cleanest search-UI, and the available search parameters are somewhat smaller than the entirety of data available.
 
 Because of this, I thought it would be fun to explore the data -- and different ways of interacting with it -- on my own. Downloading the [individual files](https://ies.ed.gov/ncee/wwc/StudyFindings), however, returns a denormalized, entangled mess of CSV files. (_You see this, Excel?! This is why no one likes you!_) 😽
 
