@@ -1,0 +1,93 @@
+wwc2=# select distinct protocol, protocol_version from studies order by protocol, protocol_version;
+                                                     protocol                                                     | protocol_version 
+------------------------------------------------------------------------------------------------------------------+------------------
+ Adolescent Literacy                                                                                              |             1.00
+ Adolescent Literacy                                                                                              |             2.00
+ Adolescent Literacy                                                                                              |             2.10
+ Adolescent Literacy                                                                                              |             3.00
+ Adolescent Literacy                                                                                              |             4.00
+ Assisting Students Struggling with Mathematics Practice Guide                                                    |             1.00
+ Assisting Students Struggling with Reading Practice Guide                                                        |             1.00
+ Beginning Reading                                                                                                |             1.00
+ Beginning Reading                                                                                                |             2.00
+ Beginning Reading                                                                                                |             2.10
+ Beginning Reading                                                                                                |             3.00
+ Character Education                                                                                              |             1.00
+ Charter Schools                                                                                                  |             3.00
+ Children Identified With Or At Risk For An Emotional Disturbance                                                 |             2.00
+ Children Identified With Or At Risk For An Emotional Disturbance                                                 |             3.00
+ Children and Students with Intellectual Disability                                                               |             3.10
+ Children and Students with an Autism Spectrum Disorder                                                           |             3.00
+ Developing Effective Fractions Instruction for Kindergarten through 8th Grade Practice Guide                     |             1.00
+ Developmental Education                                                                                          |             3.00
+ Developmental Education                                                                                          |             3.10
+ Dropout Prevention                                                                                               |             1.00
+ Dropout Prevention                                                                                               |             2.00
+ Dropout Prevention                                                                                               |             3.00
+ Dropout Prevention Practice Guide Review Protocol                                                                |             1.00
+ Dropout Prevention Practice Guide Review Protocol                                                                |             3.00
+ Early Childhood Education                                                                                        |             1.00
+ Early Childhood Education                                                                                        |             2.00
+ Early Childhood Education                                                                                        |             3.00
+ Early Childhood Education for Children with Disabilities                                                         |             2.00
+ Effective Literacy and English Language Instruction for English Learners in the Elementary Grades Practice Guide |             1.00
+ Elementary School Mathematics                                                                                    |             1.00
+ Elementary School Mathematics                                                                                    |             2.00
+ Elementary School Writing Practice Guide                                                                         |             2.10
+ Encouraging Girls in Math and Science Practice Guide                                                             |             1.00
+ English Language Learners                                                                                        |             1.00
+ English Language Learners                                                                                        |             2.00
+ English Language Learners                                                                                        |             2.10
+ English Language Learners                                                                                        |             2.20
+ English Language Learners                                                                                        |             4.00
+ Foundational Reading Practice Guide Review Protocol                                                              |             3.00
+ Helping Students Navigate the Path to College: What High Schools Can Do Practice Guide Review Protocol           |             1.00
+ High School Mathematics                                                                                          |             2.00
+ Improving Adolescent Literacy: Effective Classroom and Intervention Practices Practice Guide                     |             1.00
+ Improving Reading Comprehension in Kindergarten Through 3rd Grade Practice Guide                                 |             1.00
+ Individual Studies in the Postsecondary Education Topic Area                                                     |             3.00
+ Individual Studies in the Postsecondary Education Topic Area                                                     |             3.10
+ Mathematical Problem Solving Practice Guide                                                                      |             2.10
+ Middle School Math                                                                                               |             1.00
+ Middle School Math                                                                                               |             1.10
+ Middle School Math                                                                                               |             2.00
+ Organizing Instruction and Study to Improve Student Learning Practice Guide                                      |             1.00
+ Postsecondary Education                                                                                          |             2.00
+ Postsecondary Education                                                                                          |             3.00
+ Postsecondary Education                                                                                          |             3.10
+ Preventative Interventions to Support Student Mental Health and Well-being                                       |             3.00
+ Primary Mathematics                                                                                              |             3.00
+ Primary Mathematics                                                                                              |             3.10
+ Primary Mathematics                                                                                              |             4.00
+ Quick Review Protocol                                                                                            |             1.00
+ Quick Review Protocol                                                                                            |             2.00
+ Quick Review Protocol                                                                                            |             2.10
+ Reducing Behavior Problems in the Elementary School Classroom Practice Guide                                     |             1.00
+ Review of Individual Studies                                                                                     |             3.00
+ School Leadership Review Protocol                                                                                |             4.00
+ Science                                                                                                          |             2.00
+ Science                                                                                                          |             4.00
+ Secondary Mathematics                                                                                            |             3.00
+ Secondary Mathematics                                                                                            |             3.10
+ Single Study Review                                                                                              |             2.00
+ Strategies for Postsecondary Students in Developmental Education                                                 |             3.00
+ Structuring Out-of-School Time to Improve Academic Achievement Practice Guide                                    |             1.00
+ Students with a Specific Learning Disability                                                                     |             2.00
+ Students with a Specific Learning Disability                                                                     |             2.10
+ Students with a Specific Learning Disability                                                                     |             2.20
+ Students with a Specific Learning Disability                                                                     |             3.00
+ Supporting Postsecondary Success                                                                                 |             3.00
+ Teacher Training, Evaluation, and Compensation                                                                   |             3.00
+ Teacher Training, Evaluation, and Compensation                                                                   |             3.10
+ Teacher Training, Evaluation, and Compensation                                                                   |             3.20
+ Teacher Training, Evaluation, and Compensation                                                                   |             4.00
+ Teaching Academic Content and Literacy to English Learners in Elementary and Middle School                       |             2.00
+ Teaching Algebra Practice Guide Protocol                                                                         |             3.00
+ Teaching Math to Young Children Practice Guide                                                                   |             2.10
+ Teaching Secondary Students to Write Effectively Practice Guide                                                  |             3.00
+ Transition to College                                                                                            |             3.10
+ Transition to College                                                                                            |             3.20
+ Turning Around Chronically Low-Performing Schools Practice Guide                                                 |             1.00
+ Using Student Achievement Data to Support Instructional Decision Making Practice Guide                           |             1.00
+(88 rows)
+

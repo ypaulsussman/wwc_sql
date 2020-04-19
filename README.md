@@ -8,12 +8,13 @@ The dataset feels too small (_not to mention too unstructured-text independent!_
 
 As such, I decided to work with it in SQL. I submitted a request to WWC, got confirmation of receipt, and... never heard back 🇺🇸😄 ...so I elected just to munge and renormalize the data myself.
 
-That first step was enough of a pain that I've decided to put this project on hold until I can set aside the time to extract `protocols`, `interventions`, et al into the tables they rightfully deserve, add some PK's/FK's, and _maybe_ even spin up a Rails API on top to give me those sweet, sweet ActiveRecord-association abstractions.
+That first step was enough of a pain that I've decided to put this project on hold until I can set aside the time to ~~extract `protocols`, `interventions`, et al into the tables they rightfully deserve,~~ add some PK's/FK's, remove duplicated columns, and _maybe_ even spin up a Rails API on top to give me those sweet, sweet ActiveRecord-association abstractions.
 
 In any case, feel welcome to grab the (_denormalized, but still eminently usable!_) `initial_data.sql` file and make use of it! 🤘📚
 
 ## Replicate the Munging Process
 
+### Initial loading
 - Separate `ReviewDictionary.csv` into `Studies_Fields.csv`, `Findings_Fields.csv`, and `InterventionReports_Fields.csv`
 - Use `01_prune_fields.rb` to slice out the fields usable for SQL table-generation in  `Studies_Fields_Pruned.csv`, `Findings_Fields_Pruned.csv`, and `InterventionReports_Fields_Pruned.csv`
 - Use those three `.csv`'s to manually generate `02_create_tables.sql` 
@@ -34,3 +35,14 @@ In any case, feel welcome to grab the (_denormalized, but still eminently usable
   - Tweak and repeat, obviously, for `findings` and `studies` tables
   - Several dozen studies are misformatted for `.csv` (_usually through unescaped HTML or double-quotations._) At ~15k records, the `Studies_booled.csv` file is loadable into a UI; I found it fastest to just use regexp in VSCode to fix these, rather than adding a new script. 
   - Finally, study `1900582` has an inaccurate number of commas; fix it per `studies_munging/study_missing_commas.csv`
+
+### Add `Interventions` and `Procotols` tables
+- Grab all protocols (_query available in_ `01_all_protocols.txt`; _confirmed prior that_ `studies` _table does contain all values_)
+  - Convert to CSV w/ regexp; save as `og_protocols.csv`
+  - Use `02_generate_protocol_id.rb` to assign them arbitrary PK's
+- Grab all interventions (_queries available in_ `03_all_interventions.txt`; _confirmed prior that no table includes all values_)
+  - `$ touch 04_unique_interventions.txt && sort -u 03_all_interventions.txt | tee 04_unique_interventions.txt` to see (_and save!_) unique values
+  - Convert to CSV w/ regexp; save as `interventions.csv`
+- Manually generate `add_protocol_intervention_tables.sql`
+- `$ psql wwc`
+- `=# \i your/path/to/add_protocol_intervention_tables.sql`
