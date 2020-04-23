@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS public.protocols(
   version NUMERIC(5,2) NOT NULL
 );
 
-copy public.outcome_domains from '/Users/ypaulsussman/Desktop/wwc_sql/add_new_tables/protocols.csv' DELIMITER ',' CSV HEADER;
+copy public.protocols from '/Users/ypaulsussman/Desktop/wwc_sql/add_new_tables/protocols.csv' DELIMITER ',' CSV HEADER;
 
 CREATE TABLE IF NOT EXISTS public.outcome_domains(
   id SERIAL PRIMARY KEY,

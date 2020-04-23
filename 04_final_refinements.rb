@@ -10,7 +10,10 @@ conn = PG.connect(dbname: 'wwc')
 
 # Yep, my pl/pgSQL-fu is this actually this bad
 DUP_COLS.each do |colname|
-  conn.exec("ALTER TABLE intervention_reports DROP COLUMN #{colname};") { |result| puts result }
+  conn
+    .exec(
+      "ALTER TABLE intervention_reports DROP COLUMN #{colname};"
+    ) { |result| puts result.inspect }
 end
 
 # See README.md
