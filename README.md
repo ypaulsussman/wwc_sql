@@ -12,7 +12,7 @@ That first step was enough of a pain that I've decided to put this project on ho
 
 In any case, feel encouraged to grab the (_denormalized, but still eminently usable!_) `initial_data.sql` file and make use of it! 🤘📚 
 
-(_Running_ `add_protocol_intervention_tables.sql` _and_ `add_primary_foreign_keys.sql` _don't cure everything, but at least perform the low-hanging normalizations._)
+(_Running_ `add_new_tables.sql` _and_ `add_primary_foreign_keys.sql` _don't cure everything, but at least perform the low-hanging normalizations._)
 
 ## Replicate the Munging Process
 
@@ -38,17 +38,27 @@ In any case, feel encouraged to grab the (_denormalized, but still eminently usa
   - Several dozen studies are misformatted for `.csv` (_usually through unescaped HTML or double-quotations._) At ~15k records, the `Studies_booled.csv` file is loadable into a UI; I found it fastest to just use regexp in VSCode to fix these, rather than adding a new script. 
   - Finally, study `1900582` has an inaccurate number of commas; fix it per `studies_munging/study_missing_commas.csv`
 
-### Add `Interventions` and `Procotols` tables
+### Add `interventions`, `procotols`, and `outcome_domains` tables
 - Grab all protocols (_query available in_ `01_all_protocols.txt`; _confirmed prior that_ `studies` _table does contain all values_)
   - Convert to CSV w/ regexp; save as `og_protocols.csv`
-  - Use `02_generate_protocol_id.rb` to assign them arbitrary PK's
+  - Use `02_generate_ids.rb` to assign them arbitrary PK's
 - Grab all interventions (_queries available in_ `03_all_interventions.txt`; _confirmed prior that no table includes all values_)
   - `$ touch 04_unique_interventions.txt && sort -u 03_all_interventions.txt | tee 04_unique_interventions.txt` to see (_and save!_) unique values
   - Convert to CSV w/ regexp; save as `interventions.csv`
-- Manually generate `add_protocol_intervention_tables.sql`
+- Grab all outcome domains (_query available in_ `05_all_outcome_domains.txt`; _confirmed prior that the 52 unique values in_ `intervention_reports` _are a subset of the 88 in_ `findings`)
+  - Convert to CSV w/ regexp; save as `og_domains.csv`
+  - Modify `02_generate_ids.rb` to assign them arbitrary PK's
+- Manually generate `add_new_tables.sql`
 - `$ psql wwc`
-- `=# \i your/path/to/add_protocol_intervention_tables.sql`
+- `=# \i your/path/to/add_new_tables.sql`
 
 ### Add primary and foreign keys
 - `$ psql wwc`
 - `=# \i your/path/to/add_primary_foreign_keys.sql`
+
+### Final refinements
+- Run `$ ruby path/to/04_final_refinements.rb` for the following:
+  - Many of the `intervention_reports` fields don't appear to contain anything beyond aggregated data from their constituent studies; drop them for now (_you can recalculate on the fly or in a matview if later needed._)
+  - _@Y TODO: convert studies' 50 states cols to many-many join_
+  - The more I think about it, the more it irks me to call it the `studies` table: the `citation` field isn't unique; rather, it's the (formerly named) `ReviewID` field which joins this table to `findings`. As such? Rename it. In fact, go back to `add_new_tables.sql` and update the `findings` fk, preemptively, as well. 
+- If _you_ want, the `OutcomeMeasureID` and `Outcome_Measure` fields on `findings` are ripe for extraction to a new table, but given that [1] there's a long tail of values there (_sth like ~2500 unique values for ~6k records, of which only ~90 have more than 10 associated records_), [2] the values are only present on the one table, and [3] I was _reaaaaaaaally_ done with ETL and munging at this point, I left it untouched. ...for now.

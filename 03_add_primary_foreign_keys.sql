@@ -17,7 +17,8 @@ DELETE FROM findings WHERE reviewid NOT IN (SELECT id FROM studies);
 -- This constraint won't work without further munging; 1009 `findings` records reference 136 `reviewid` values that aren't present in the `studies` data... hence the somewhat-disappointing deletion beforehand.
 ALTER TABLE findings ADD CONSTRAINT constraint_fk_studies FOREIGN KEY (reviewid) REFERENCES studies (id);
 
-ALTER TABLE findings RENAME COLUMN reviewid TO study_id;
+-- fk name derives from table-rename in Step 04 'final refinements'; see README.me
+ALTER TABLE findings RENAME COLUMN reviewid TO study_review_id;
 
 
 -- PROTOCOLS
@@ -74,3 +75,23 @@ ALTER TABLE intervention_reports RENAME COLUMN interventionid TO intervention_id
 ALTER TABLE intervention_reports ADD CONSTRAINT constraint_fk_interventions FOREIGN KEY (intervention_id) REFERENCES interventions (id);
 
 ALTER TABLE intervention_reports DROP COLUMN IF EXISTS intervention_name;
+
+
+-- OUTCOME DOMAINS
+-- Add outcome_domains fk to findings
+ALTER TABLE findings ADD COLUMN outcome_domain_id INTEGER;
+
+UPDATE findings f SET outcome_domain_id = (SELECT id FROM outcome_domains o WHERE o.name = f.outcome_domain);
+
+ALTER TABLE findings ADD CONSTRAINT constraint_fk_outcome_domains FOREIGN KEY (outcome_domain_id) REFERENCES outcome_domains (id);
+
+ALTER TABLE findings DROP COLUMN IF EXISTS outcome_domain;
+
+-- Add outcome_domains fk to intervention_reports
+ALTER TABLE intervention_reports ADD COLUMN outcome_domain_id INTEGER;
+
+UPDATE intervention_reports i SET outcome_domain_id = (SELECT id FROM outcome_domains o WHERE o.name = i.outcome_domain);
+
+ALTER TABLE intervention_reports ADD CONSTRAINT constraint_fk_outcome_domains FOREIGN KEY (outcome_domain_id) REFERENCES outcome_domains (id);
+
+ALTER TABLE intervention_reports DROP COLUMN IF EXISTS outcome_domain;

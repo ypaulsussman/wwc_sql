@@ -1,8 +1,4 @@
-- Ruby script to replace states w/ many-many join table
-- Repeat extraction-process with any sets of (internally mutually-exclusive) boolean fields in `studies`
 - Review remaining fields with significantly-repeating values; extract to new tables as reasonable
-- Add scraper script for FTS `descriptions` field on `interventions` table
-  - Use Intervention_Page_URL field from InterventionReport
 
 - Export db as 'final' normalized setup (both with pg_dump and pg_dump -a, in case you can use the latter as a seeds file)
 
@@ -10,6 +6,13 @@
 - Add AR models as scaffolds
   - (Probably?) delete individual-model migrations
   - Replace w/ initial 'setup and seed from .sql file' migration
+- Use migrations for:
+  - Ruby script to replace states w/ many-many join table
+    - Drop regions (each between 150 and 300 records; not very comprehensive)
+    - Maybe same for school-types...
+  - Repeat extraction-process with any sets of (internally mutually-exclusive) boolean fields in `studies`
+  - Add scraper script for FTS `descriptions` field on `interventions` table
+    - Use Intervention_Page_URL field from InterventionReport
 - Test controller endpoints w/ Postman
 
 - Create single-page React app

@@ -1,0 +1,91 @@
+wwc=# select distinct outcome_domain from findings order by outcome_domain;
+                outcome_domain                
+----------------------------------------------
+Academic achievement
+Academic self-efficacy
+Access and enrollment
+Algebra
+Alphabetics
+Attainment
+Attendance (high school)
+Audience
+Behavior
+Cognition
+College and career preparation
+College readiness
+Communication/ Language
+Completing school
+Comprehension
+Conceptual knowledge
+Credit accumulation
+Credit accumulation and persistence
+Early reading/writing
+Emotional/internal behavior
+English language arts achievement
+English language development
+English language proficiency
+Executive functioning
+External behavior
+Financial aid enrollment
+Functional abilities
+General Mathematics Achievement
+General academic achievement (college)
+General academic achievement (high school)
+General academic achievement (middle school)
+Genre elements
+Geometry
+Geometry and Measurement
+Graduating school
+Independent living skills
+Knowledge, attitudes, & values
+Labor market outcomes
+Language arts
+Language development
+Letter identification
+Literacy achievement
+Number and Operations
+Oral language
+Organization
+Other academic performance
+Overall writing quality
+Phonological awareness
+Phonological processing
+Physical well-being
+Print knowledge
+Problem behavior
+Procedural flexibility
+Procedural knowledge
+Progress in developmental education
+Progressing in school
+Reading achievement
+Reading and listening comprehension
+Reading comprehension
+Reading fluency
+School attendance
+School engagement
+School leader retention at the school
+Science achievement
+Self-care/daily living
+Self-concept
+Self-determination
+Sentence structure
+Social outcomes
+Social studies achievement
+Social-emotional competence
+Social-emotional development
+Staying in school
+Student behavior
+Student progression
+Teacher and leader effectiveness
+Teacher attendance
+Teacher instruction
+Teacher retention
+Teacher retention at the school
+Teacher retention in the profession
+Teacher retention in the school district
+Vocabulary development
+Word choice
+Word reading 
+Writing achievement
+Writing output
+Writing processes

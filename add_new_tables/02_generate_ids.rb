@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 table = CSV.parse(File.read('og_protocols.csv'), headers: true)
