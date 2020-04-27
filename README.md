@@ -8,11 +8,11 @@ The dataset feels too small (_not to mention too unstructured-text independent!_
 
 As such, I decided to work with it in SQL. I submitted a request to WWC, got confirmation of receipt, and... never heard back 🇺🇸😄 ...so I elected to just munge and renormalize the data myself.
 
-That first step was enough of a pain that I've decided to put this project on hold until I can set aside the time to ~~extract `protocols`, `interventions`, et al into the tables they rightfully deserve, add some PK's/FK's,~~ remove duplicated columns, and _maybe_ even spin up a Rails API on top to give me those sweet, sweet ActiveRecord-association abstractions.
+That first step was enough of a pain that I've decided to put this project on hold until I can set aside the time to ~~extract `protocols`, `interventions`, et al into the tables they rightfully deserve, add some PK's/FK's, remove duplicated columns,~~ and _maybe_ even spin up a Rails API on top to give me those sweet, sweet ActiveRecord-association abstractions.*
 
-In any case, feel encouraged to grab the (_denormalized, but still eminently usable!_) `initial_data.sql` file and make use of it! 🤘📚 
+In any case, feel encouraged to grab and make use of the (_denormalized, but still eminently usable!_) `seed_db.sql` file (_or its constituents,_ `seed_schema.sql` _and_ `seed_data.sql`)! 🤘📚 
 
-(_Running_ `add_new_tables.sql` _and_ `add_primary_foreign_keys.sql` _don't cure everything, but at least perform the low-hanging normalizations._)
+* **UPDATE:** While the SQL approach is much (_much, much_) faster, computationally, I ended up restarting the process from a Rails-first paradigm. (_Which was much faster, my-poor-brainally._) If interested, you can find that ongoing project at [this repo!](https://github.com/ypaulsussman/wwc_api)
 
 ## Replicate the Munging Process
 
@@ -58,7 +58,7 @@ In any case, feel encouraged to grab the (_denormalized, but still eminently usa
 
 ### Final refinements
 - Run `$ ruby path/to/04_final_refinements.rb` for the following:
-  - Many of the `intervention_reports` fields don't appear to contain anything beyond aggregated data from their constituent studies; drop them for now (_you can recalculate on the fly or in a matview if later needed._)
+  - Many of the `intervention_reports` fields don't appear to contain anything beyond aggregated data from their constituent `studies`; drop them for now (_you can recalculate on the fly or in a matview if later needed._)
   - _@Y TODO: convert studies' 50 states cols to many-many join_
   - The more I think about it, the more it irks me to call it the `studies` table: the `citation` field isn't unique; rather, it's the (formerly named) `ReviewID` field which joins this table to `findings`. As such? Rename it. In fact, go back to `add_new_tables.sql` and update the `findings` fk, preemptively, as well. 
 - If _you_ want, the `OutcomeMeasureID` and `Outcome_Measure` fields on `findings` are ripe for extraction to a new table, but given that [1] there's a long tail of values there (_sth like ~2500 unique values for ~6k records, of which only ~90 have more than 10 associated records_), [2] the values are only present on the one table, and [3] I was _reaaaaaaaally_ done with ETL and munging at this point, I left it untouched. ...for now.
